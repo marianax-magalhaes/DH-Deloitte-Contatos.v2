@@ -1,0 +1,49 @@
+Estilo geral:
+- adicionar do arquivo original os estilos entre o asterisco e aside.
+centralizei a página alterando o justify-content para center
+
+
+Criar componente Lista de Tarefas:
+- ng g c components/ListaDeTarefas;
+este componente sera o quadrado roxo claro que envolve o conteúdo
+- adicionar o seletor ao app.component.html;
+<app-lista-de-contatos></app-lista-de-contatos>
+- estilizar usando o arquivo base de CSS copiando apenas o main;
+- adicionar a tag <main> abrindo e fechando no html;
+
+
+Criar componente Input:
+- ng g c components/InputTarefas;
+conterá o formulário de input de novas tarefas
+- adicionar o seletor ao lista-de-tarefas.component.html (dentro de main);
+<app-input-tarefas></app-input-tarefas>
+- estilizar usando o arquivo base de CSS copiando apenas as partes relativas à form.
+- alterar o html com o form do html base;
+
+
+Criar componente Tarefas:
+- ng g c components/Tarefas;
+aqui que realmente constrá a listagem das tarefas adicionadas pelo formulario
+- adicionar o seletor ao lista-de-tarefas.component.html (dentro da main);
+<app-tarefas></app-tarefas>
+- estilizar usando o arquivo base de CSS copiando as partes relativas à table.
+- alterar o html com a table de tarefas do html base;
+
+
+Criar o modelo de Tarefa:
+- dentro de app, criar a pasta models e nela o arquivo Tarefa.ts;
+- no Tarefas.ts, criar uma classe para definirmos métodos e/ou propriedades do objeto;
+
+
+Adicionar o novo modelo ao Lista de Tarefas:
+- em lista-de-tarefas.ts, definiremos as atribuicoes do modelo Tarefa.ts, criaremos uma lista pre-definida de tarefas obedecendo as obrigatoriedades ou não do modelo;
+lembrando que para funcionar o modelo precisa ser importado!
+
+
+Adicionar loop às Tarefas:
+- para que todas as tarefas descritas na lista (seguindo o modelo de Tarefas) sejam mostradas no display, precisamos alterar o html de lista-de-tarefas usando o loop do *ngFor.
+o loop sera aplicado no seletor que desejamos que de fato efetue isso, no caso <app-tarefas>: <app-tarefas *ngFor="let t of tarefas" [lt]="t">
+- em tarefas.ts precisamos avisar que teremos um input vindo de uma classe externa: @Input("lt") tarefas!:Tarefa;
+lembrando sempre dos imports necessários, no caso do input e do Tarefa.ts. O ! é necessário para reforcar que a fonte é "externa".
+- agora, ao invés de uma lista descrita no html, temos dados vindos de outro lugar, alteramos o tarefas.html;
+antes tinhamos ali a descricao de lista, agora precisamos que essas informacoes sejam importadas do lista-de-contatos.ts. onde era o nome da tarefa, por exemplo ficará {{tarefas.task}}

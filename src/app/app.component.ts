@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -9,8 +9,15 @@ export class AppComponent {
   mostrandoModal = false;
   title = 'contatos';
 
-  funcao(){
+ 
+
+  showModal(){
     this.mostrandoModal = true;
     console.log("Eu te escutei, meu filho");
+    this.mostrandoModal = true;
+  }
+
+  hideModal(){
+    this.mostrandoModal = false;
   }
 }

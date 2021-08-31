@@ -9,7 +9,7 @@ export class MenuComponent implements OnInit {
 
 
   //criando um emissor de eventos
- @Output() emissor:EventEmitter<null> = new EventEmitter()
+ @Output() onAddContatoClick:EventEmitter<null> = new EventEmitter()
   //escolher o que mora no @angular/core e importar. por enquanto vai ser nulo
 
 
@@ -19,8 +19,13 @@ export class MenuComponent implements OnInit {
   }
 
   mostrarModalClick(){
-    this.emissor.emit();
+    this.onAddContatoClick.emit();
     console.log("Clique para abrir o modal!")
+  }
+
+  sair(){
+    console.log("Pedindo para sair");
+    this.onAddContatoClick.emit()
   }
 
 }

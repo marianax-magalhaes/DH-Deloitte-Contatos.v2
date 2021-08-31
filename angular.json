@@ -1,12 +1,12 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "cli": {
-    "analytics": "e28a75a9-c58c-4488-a9f3-f4af71b09f06"
+    "analytics": "3ffcc3ad-f4f0-44d2-a1df-c634013dfd3c"
   },
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "exercicio17-todolistAngular": {
+    "contatos": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:application": {
@@ -20,7 +20,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/exercicio17-todolistAngular",
+            "outputPath": "dist/contatos",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -71,10 +71,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "exercicio17-todolistAngular:build:production"
+              "browserTarget": "contatos:build:production"
             },
             "development": {
-              "browserTarget": "exercicio17-todolistAngular:build:development"
+              "browserTarget": "contatos:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -82,7 +82,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "exercicio17-todolistAngular:build"
+            "browserTarget": "contatos:build"
           }
         },
         "test": {
@@ -105,5 +105,5 @@
       }
     }
   },
-  "defaultProject": "exercicio17-todolistAngular"
+  "defaultProject": "contatos"
 }

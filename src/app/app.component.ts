@@ -6,5 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  mostrandoModal = false;
   title = 'contatos';
+
+  funcao(){
+    this.mostrandoModal = true;
+    console.log("Eu te escutei, meu filho");
+  }
 }

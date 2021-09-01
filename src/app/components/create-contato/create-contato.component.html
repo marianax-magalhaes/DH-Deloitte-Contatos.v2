@@ -13,9 +13,9 @@
         <label>
             Telefone:
             <div *ngFor="let t of novoContato.telefones; let i=index; trackBy:track">
-                <input type="tel" name="telefone"  [(ngModel)]="novoContato.telefones[i]">
-                <a *ngIf="i==0"><i class="material-icons">add_circle</i></a>
-                <a *ngIf="i!=0" class="remove"><i class="material-icons">remove_circle</i></a>
+                <input type="tel" name="telefone_{{i}}"  [(ngModel)]="novoContato.telefones[i]">
+                <a *ngIf="i==0" (click)="addTelefone()"><i class="material-icons">add_circle</i></a>
+                <a *ngIf="i!=0" class="remove" (click)="removeTelefone(i)"><i class="material-icons">remove_circle</i></a>
 
             </div>
             <!-- <div>
@@ -26,7 +26,7 @@
                 <input type="tel" name="tel" id="tel">
                 <a class="remove" href=""><i class="material-icons">remove_circle</i></a>
             </div> -->
-
+    <pre>{{novoContato | json}}</pre>
 
         </label>
         <div class="controles">

@@ -14,7 +14,7 @@ export class CreateContatoComponent implements OnInit {
   novoContato:Contato = {
     nome:"",
     email: "",
-    telefones: ["", ""]
+    telefones: [""]
   }
 
   constructor() { }
@@ -31,4 +31,14 @@ export class CreateContatoComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  addTelefone():void{
+    console.log("funciona");
+    this.novoContato.telefones.push("");
+  }
+
+  removeTelefone(position:number):void{
+    console.log("remove");
+    this.novoContato.telefones.splice(position, 1);
+
+  }
 }

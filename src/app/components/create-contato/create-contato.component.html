@@ -2,26 +2,33 @@
     <form>
         <label>
             Nome:
-            <input type="text" name="nome" id="nome">
+            <input type="text" name="nome" id="nome" [(ngModel)]="novoContato.nome">
+            <!-- ngmodel so funciona nas tags com name!!!! -->
+            <!-- pq ngmodel e nao {{}}, pq so asism conseguimos pegar os dados digitados no form do browser e trazer para o ts, com o {{ }} so funciona do ts para o browser -->
         </label>
         <label>
             E-mail:
-            <input type="email" name="email" id="email">
+            <input type="email" name="email" id="email" [(ngModel)]="novoContato.email">
         </label>
         <label>
             Telefone:
-            <div>
-                <input type="email" name="email" id="email">
-                <a href=""><i class="material-icons">add_circle</i></a>
+            <div *ngFor="let t of novoContato.telefones; let i=index; trackBy:track">
+                <input type="tel" name="telefone"  [(ngModel)]="novoContato.telefones[i]">
+                <a *ngIf="i==0"><i class="material-icons">add_circle</i></a>
+                <a *ngIf="i!=0" class="remove"><i class="material-icons">remove_circle</i></a>
+
             </div>
-            <div>
-                <input type="email" name="email" id="email">
+            <!-- <div>
+                <input type="tel" name="tel" id="tel">
                 <a class="remove" href=""><i class="material-icons">remove_circle</i></a>
             </div>
             <div>
-                <input type="email" name="email" id="email">
+                <input type="tel" name="tel" id="tel">
                 <a class="remove" href=""><i class="material-icons">remove_circle</i></a>
-            </div>
+            </div> -->
+
+            <pre>{{novoContato | json}}</pre>
+
         </label>
         <div class="controles">
             <button (click)="funfa()" type="button" class="link">Cancelar</button>

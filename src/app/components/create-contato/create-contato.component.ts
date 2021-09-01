@@ -1,5 +1,6 @@
 import { EventEmitter, Output } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
+import { Contato } from 'src/app/models/Contato';
 
 @Component({
   selector: 'app-create-contato',
@@ -9,6 +10,12 @@ import { Component, OnInit } from '@angular/core';
 export class CreateContatoComponent implements OnInit {
 
   @Output() funfaCancelContato:EventEmitter<null> = new EventEmitter();
+  
+  novoContato:Contato = {
+    nome:"",
+    email: "",
+    telefones: ["222", "333"]
+  }
 
   constructor() { }
 
@@ -16,6 +23,11 @@ export class CreateContatoComponent implements OnInit {
     console.log("Pediu para cancelar");
     this.funfaCancelContato.emit()
   }
+
+  track(index:number, value:string){
+    return index;
+  }
+
   ngOnInit(): void {
   }
 

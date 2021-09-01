@@ -14,7 +14,7 @@ export class CreateContatoComponent implements OnInit {
   novoContato:Contato = {
     nome:"",
     email: "",
-    telefones: ["222", "333"]
+    telefones: ["", ""]
   }
 
   constructor() { }

@@ -1,5 +1,4 @@
-import { Input } from '@angular/core';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Contato } from 'src/app/models/Contato';
 
 @Component({
@@ -9,9 +8,7 @@ import { Contato } from 'src/app/models/Contato';
 })
 export class ContatoComponent implements OnInit {
 
-  // @inupt para indicar que obteremos os dados atraves de um input, de fora da classe.
-  // ! indica que ele será inicilizado foram desse ts
-  @Input("rc") registro!:Contato;
+  @Input() registro!:Contato;
 
   constructor() { }
 

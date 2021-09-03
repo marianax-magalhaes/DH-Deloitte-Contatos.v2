@@ -9,18 +9,14 @@ import { ContatoService } from 'src/app/services/contato.service';
 })
 export class ListaDeContatosComponent implements OnInit {
 
-  //atributo contatos vai vir do model contato.ts 
-  //necessario esse [] para avissar que é um array!
-  contatos:Contato[];
-    // criando nova prorpiedade que permitira a maniupulacao dos contatos.
+  public contatos: Contato[];
   private cs:ContatoService = new ContatoService();
 
-
-  constructor() { 
+  constructor() {
     this.contatos = this.cs.getContatos();
   }
 
   ngOnInit(): void {
-  }
+  }  
 
 }

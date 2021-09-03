@@ -3,8 +3,6 @@
         <label>
             Nome:
             <input type="text" name="nome" id="nome" [(ngModel)]="novoContato.nome">
-            <!-- ngmodel so funciona nas tags com name!!!! -->
-            <!-- pq ngmodel e nao {{}}, pq so asism conseguimos pegar os dados digitados no form do browser e trazer para o ts, com o {{ }} so funciona do ts para o browser -->
         </label>
         <label>
             E-mail:
@@ -12,25 +10,23 @@
         </label>
         <label>
             Telefone:
-            <div *ngFor="let t of novoContato.telefones; let i=index; trackBy:track">
-                <input type="tel" name="telefone_{{i}}"  [(ngModel)]="novoContato.telefones[i]">
-                <a *ngIf="i==0" (click)="addTelefone()"><i class="material-icons">add_circle</i></a>
-                <a *ngIf="i!=0" class="remove" (click)="removeTelefone(i)"><i class="material-icons">remove_circle</i></a>
+            <div *ngFor="let tel of novoContato.telefones; let i = index; trackBy: track;">
 
-            </div>
-            <!-- <div>
-                <input type="tel" name="tel" id="tel">
-                <a class="remove" href=""><i class="material-icons">remove_circle</i></a>
-            </div>
-            <div>
-                <input type="tel" name="tel" id="tel">
-                <a class="remove" href=""><i class="material-icons">remove_circle</i></a>
-            </div> -->
-    <pre>{{novoContato | json}}</pre>
+                <input type="tel" name="telefone_{{i}}" [(ngModel)]="novoContato.telefones[i]">
+                
+                <a *ngIf="i==0" (click)="addTelefone()">
+                    <i class="material-icons">add_circle</i>
+                </a>
 
+                <a *ngIf="i!=0" (click)="removeTelefone(i)" class="remove">
+                    <i class="material-icons">remove_circle</i>
+                </a>
+                
+            </div>
+            
         </label>
         <div class="controles">
-            <button (click)="funfa()" type="button" class="link">Cancelar</button>
+            <button (click)="cancelar()" type="button" class="link">Cancelar</button>
             <button (click)="salvar()" type="button">Adicionar</button>
         </div>
     </form>
